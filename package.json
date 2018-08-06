@@ -1,0 +1,37 @@
+{
+  "name": "murphys-law",
+  "version": "1.0.0",
+  "description": "CDK Hackathon 2018",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "lint": "standard -v | snazzy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "copy-webpack-plugin": "^4.5.2",
+    "react-hot-loader": "^4.3.3",
+    "snazzy": "^7.1.1",
+    "standard": "^11.0.1",
+    "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "dependencies": {
+    "@material-ui/core": "^1.4.3",
+    "babel-preset-env": "^1.7.0",
+    "history": "^4.7.2",
+    "lodash": "^4.17.10",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-tap-event-plugin": "^3.0.3"
+  }
+}
