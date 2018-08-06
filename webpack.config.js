@@ -2,7 +2,10 @@ const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-  entry: './src/index.js',
+  entry: [
+      'webpack-dev-server/client?http://0.0.0.0:8080',
+      './src/index.js',
+  ],
   module: {
     rules: [
       {
