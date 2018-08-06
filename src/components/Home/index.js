@@ -1,23 +1,20 @@
 import React, { Component } from 'react'
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import {Search} from '../Search/Search'
 
 export class Home extends Component {
-    constructor (props) {
-        super(props)
-    }
+  constructor (props) {
+    super(props)
+  }
 
-    render () {
-        return (
-            <div>
-                <div style={{ width: '100%', textAlign: 'center', height: '100%'}}>
-                    Please enter search parameters:
-                    <div>
-                        <TextField/>
-                    </div>
-                </div>
-            </div>
-        )
-    }
+  render () {
+    return (
+      <div>
+        <div style={{ width: '100%', textAlign: 'center', height: '100%'}}>
+                  Lemonade
+          <Search />
+        </div>
+      </div>
+    )
+  }
 }
 export default Home

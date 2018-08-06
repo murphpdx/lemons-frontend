@@ -4,7 +4,7 @@
   "description": "CDK Hackathon 2018",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "start": "webpack-dev-server --host 0.0.0.0 --inline --content-base ./webpack.config.js",
     "lint": "standard -v | snazzy"
   },
   "keywords": [],

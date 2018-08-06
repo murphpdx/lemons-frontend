@@ -1,18 +1,17 @@
 import React, { Component } from 'react'
 
 export class Settings extends Component {
-    constructor (props) {
-        super(props)
-    }
+  constructor (props) {
+    super(props)
+  }
 
-
-    render () {
-        return (
-            <div>
+  render () {
+    return (
+      <div>
                 Settings Home
-            </div>
-        )
-    }
+      </div>
+    )
+  }
 }
 
 export default Settings
