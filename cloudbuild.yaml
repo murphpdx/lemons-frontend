@@ -5,3 +5,5 @@ steps:
   args: ['run', 'build:prod']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/lemons-212516/$REPO_NAME:$COMMIT_SHA']
