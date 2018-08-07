@@ -10,10 +10,14 @@ export class Search extends Component {
   render () {
     return (
       <div>
-        <TextField />
-        <Button variant='outlined'>
-                    Search
-        </Button>
+        <div>
+          <TextField />
+        </div>
+        <div>
+          <Button variant='outlined' color='primary' className='search-button'>
+                  Search
+          </Button>
+        </div>
       </div>
     )
   }
