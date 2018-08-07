@@ -6,6 +6,7 @@ const config = {
     entry: {
         main: [
             './src/index.js',
+            './src/assets/style.scss'
         ],
     },
     // Render source-map file for final build
@@ -32,6 +33,10 @@ const config = {
                 query: {
                     cacheDirectory: true,
                 },
+            },
+            {
+                test: /\.(css|scss|sass)$/,
+                loader: 'style-loader!css-loader!sass-loader'
             },
         ],
     },

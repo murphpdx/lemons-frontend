@@ -9,6 +9,7 @@ const config = {
             // only- means to only hot reload for successful updates
             'webpack/hot/only-dev-server',
             './src/index.js',
+            './src/assets/style.scss'
         ],
     },
     // Server Configuration options
@@ -39,6 +40,10 @@ const config = {
                 query: {
                     cacheDirectory: true,
                 },
+            },
+            {
+                test: /\.(css|scss|sass)$/,
+                loader: 'style-loader!css-loader!sass-loader'
             },
         ],
     },
