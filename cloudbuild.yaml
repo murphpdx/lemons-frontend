@@ -4,6 +4,7 @@ steps:
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'build:prod']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '.']
+  args: ['build', '-t', 'gcr.io/lemons-212516/lemons-frontend', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/lemons-212516/$REPO_NAME:$COMMIT_SHA']
+  args: ['push', 'gcr.io/lemons-212516/lemons-frontend']
+images: ['gcr.io/lemons-212516/lemons-frontend']
