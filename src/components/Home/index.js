@@ -9,9 +9,8 @@ export class Home extends Component {
   render () {
     return (
       <div>
-        <div style={{ width: '100%', textAlign: 'center', height: '100%'}}>
-                  Lemonade
-          <Search />
+        <div className="search-bar">
+            <Search />
         </div>
       </div>
     )

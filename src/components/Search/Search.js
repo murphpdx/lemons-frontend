@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
+import InputAdornment from '@material-ui/core/InputAdornment';
+import SearchOutlined from '@material-ui/icons/SearchOutlined';
 
 export class Search extends Component {
   constructor (props) {
@@ -10,10 +11,21 @@ export class Search extends Component {
   render () {
     return (
       <div>
-        <TextField />
-        <Button variant='outlined'>
-                    Search
-        </Button>
+        <div>
+            <TextField
+                id="search-input"
+                InputProps={{
+                    startAdornment: (
+                        <InputAdornment position="start">
+                            <SearchOutlined />
+                        </InputAdornment>
+                    ),
+                }}
+            />
+        </div>
+        <div>
+
+        </div>
       </div>
     )
   }
