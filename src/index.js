@@ -11,7 +11,7 @@ const wrappedComponent = (
     <div>
       <Route path='/' exact component={Home} />
       <Route path='/settings' component={Settings} />
-      <Route path='/carInfo' component={CarInfo} />
+      <Route path='/carinfo' component={CarInfo} />
     </div>
   </Router>
 )

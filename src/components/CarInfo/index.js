@@ -4,7 +4,7 @@ import CardContent from '@material-ui/core/CardContent'
 import CardHeader from '@material-ui/core/CardHeader'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
-import Home from './index.js'
+import { Link } from 'react-router-dom'
 
 const style = {
   background: 'black',
@@ -30,8 +30,11 @@ export class CarInfo extends React.Component {
               Car Information: {this.state.carName}
             </CardHeader>
             <div>
-              <Button>
-                <Home />back to search
+              <Button
+                component={Link}
+                to={'../'}
+              >
+                back to search
               </Button>
             </div>
             <Typography>
