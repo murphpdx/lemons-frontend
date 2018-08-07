@@ -1,13 +1,12 @@
-FROM node:8.11.3
+FROM nginx
 
-RUN mkdir /opt/lemons/
-WORKDIR /opt/lemons/
+COPY dist /usr/share/nginx/html
+COPY config/nginx.conf /etc/nginx/nginx.conf
 
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
+COPY entry.sh /
+RUN chmod +x /entry.sh
+ENTRYPOINT ["/entry.sh"]
 
-#COPY package.json /opt/lemons/package.json
-#COPY webpack.config.js /opt/lemons/webpack.config.js
-COPY . /opt/lemons/
-RUN npm install --silent
+EXPOSE 8080
 
-CMD ["npm", "start"]
+CMD ["nginx", "-g", "daemon off;"]

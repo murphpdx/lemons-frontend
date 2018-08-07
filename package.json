@@ -4,7 +4,8 @@
   "description": "CDK Hackathon 2018",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --host 0.0.0.0 --inline --content-base ./webpack.config.js",
+    "start": "webpack-dev-server --config webpack.dev.config.js --progress --inline --colors --mode development",
+    "build:prod": "webpack --config webpack.prod.config.js --progress --colors --mode production",
     "lint": "standard -v | snazzy"
   },
   "keywords": [],
@@ -13,12 +14,17 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "copy-webpack-plugin": "^4.5.2",
+    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-template": "^6.2.0",
     "react-hot-loader": "^4.3.3",
     "snazzy": "^7.1.1",
     "standard": "^11.0.1",
+    "transfer-webpack-plugin": "^0.1.4",
+    "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack": "^4.15.1",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4"
@@ -31,7 +37,6 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1",
-    "react-tap-event-plugin": "^3.0.3"
+    "react-router-dom": "^4.3.1"
   }
 }
