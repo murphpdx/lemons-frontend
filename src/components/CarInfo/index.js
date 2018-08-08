@@ -38,9 +38,15 @@ export class CarInfo extends React.Component {
                 back to search
               </Button>
             </div>
-            <Typography>
-              {carDetails.Results[0].Summary.toString()}
-            </Typography>
+              Summary:
+            {carDetails.Results.map(recalls =>
+              <div>
+                <Typography>
+                    Summary:
+                </Typography>
+                {recalls.Summary}
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>
