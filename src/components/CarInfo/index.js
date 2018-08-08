@@ -27,7 +27,7 @@ export class CarInfo extends React.Component {
         <Card >
           <CardContent>
             <CardHeader style={style}>
-              Car Information: {this.state.carName}
+              Car Information: {this.carName}
             </CardHeader>
             <div>
               <Button
