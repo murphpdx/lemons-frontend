@@ -5,20 +5,25 @@ import SearchOutlined from '@material-ui/icons/SearchOutlined'
 import Button from '@material-ui/core/Button'
 import { Redirect } from 'react-router'
 import { searchByYearAndMake } from './../../services/search'
+import YearPicker from 'react-year-picker'
 
 export class Search extends Component {
   constructor (props) {
     super(props)
     this.state = {
       fireRedirect: false,
-      carInfo: ''
+      carInfo: '',
+      year: null
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.onDateChange = this.onDateChange.bind(this)
   }
 
+  onDateChange (year) {
+    this.setState({ year })
+  }
   async handleSubmit () {
-    console.log('hi')
     let car = await searchByYearAndMake('2000', 'saturn', 'LS')
     console.log(car)
     this.setState({
@@ -32,7 +37,7 @@ export class Search extends Component {
 
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <div id='search-container'>
           <TextField
             id='search-input'
             InputProps={{
@@ -43,13 +48,17 @@ export class Search extends Component {
               )
             }}
           />
+          <YearPicker
+            onChange={this.onDateChange}
+            id='date-picker'
+          />
           <Button
             onClick={this.handleSubmit}
           >
                 Search
           </Button>
+        </div>
 
-        </form>
         {fireRedirect &&
         <Redirect
           to={{

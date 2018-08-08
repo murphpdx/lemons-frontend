@@ -8,4 +8,14 @@
     left: 50%;
     margin-top: -50px;
     margin-left: -100px;
+    display: inline;
+}
+
+.search-container {
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.year-picker {
+    display: inline-block;
 }
