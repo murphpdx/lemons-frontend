@@ -7,6 +7,7 @@ const config = {
   entry: {
     main: [
       // only- means to only hot reload for successful updates
+      'babel-polyfill',
       'webpack/hot/only-dev-server',
       './src/index.js',
       './src/assets/style.scss'

@@ -17,13 +17,13 @@ export class Search extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit (event) {
+  async handleSubmit () {
     console.log('hi')
+    let car = await searchByYearAndMake('2000', 'saturn', 'LS')
+    console.log(car)
     this.setState({
-      fireRedirect: true
-    })
-    searchByYearAndMake('2000', 'saturn').then(response => {
-      console.log(response)
+      fireRedirect: true,
+      carInfo: car
     })
   }
 
@@ -44,8 +44,7 @@ export class Search extends Component {
             }}
           />
           <Button
-            to={'/carinfo'}
-            type='submit'
+            onClick={this.handleSubmit}
           >
                 Search
           </Button>
@@ -53,7 +52,10 @@ export class Search extends Component {
         </form>
         {fireRedirect &&
         <Redirect
-          to={'/carinfo'}
+          to={{
+            pathname: '/carinfo',
+            state: { carDetails: this.state.carInfo }
+          }}
         />
         }
       </div>

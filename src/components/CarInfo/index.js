@@ -22,6 +22,7 @@ export class CarInfo extends React.Component {
   }
 
   render () {
+    const { carDetails } = this.props.location.state
     return (
       <div>
         <Card >
@@ -38,7 +39,7 @@ export class CarInfo extends React.Component {
               </Button>
             </div>
             <Typography>
-              //display car information
+              {carDetails.Results[0].Summary.toString()}
             </Typography>
           </CardContent>
         </Card>
