@@ -63,7 +63,6 @@ export class CarInfo extends React.Component {
                     </Moment>
                     <br />
                     <Typography style={{fontWeight: 'bold'}}>Component:</Typography> {this.toLowerCase(recalls.Component.toString())}
-                    <br />
                   </Typography>
                   <CardActions>
                     <IconButton
@@ -82,7 +81,6 @@ export class CarInfo extends React.Component {
                       <Typography style={{fontWeight: 'bold'}}>Remedy:</Typography> {this.toLowerCase(recalls.Remedy.toString())}
                       <br />
                       <Typography style={{fontWeight: 'bold'}}>Notes:</Typography> {this.toLowerCase(recalls.Notes.toString())}
-                      <br />
                     </Typography>
                   </Collapse>
                 </Card>
