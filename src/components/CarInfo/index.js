@@ -54,20 +54,13 @@ export class CarInfo extends React.Component {
                     <br />
                     <Typography style={{fontWeight: 'bold'}}>Component:</Typography> {this.toLowerCase(recalls.Component.toString())}
                     <br />
-                    <Typography style={{fontWeight: 'bold'}}>Conequence:</Typography> {this.toLowerCase(recalls.Conequence.toString())}
+                    <Typography style={{fontWeight: 'bold'}}>Consequence:</Typography> {this.toLowerCase(recalls.Conequence.toString())}
                     <br />
                     <Typography style={{fontWeight: 'bold'}}>Remedy:</Typography> {this.toLowerCase(recalls.Remedy.toString())}
                     <br />
                     <Typography style={{fontWeight: 'bold'}}>Notes:</Typography> {this.toLowerCase(recalls.Notes.toString())}
-                    {/* <Typography style={{fontWeight: 'bold'}}>ReportReceivedDate:</Typography> {recalls.ReportReceivedDate} */}
-                    {/* <br /> */}
-                    {/* <Typography style={{fontWeight: 'bold'}}>Component:</Typography> {recalls.Component} */}
-                    {/* <br /> */}
-                    {/* <Typography style={{fontWeight: 'bold'}}>Conequence:</Typography> {recalls.Conequence} */}
-                    {/* <br /> */}
-                    {/* <Typography style={{fontWeight: 'bold'}}>Remedy:</Typography> {recalls.Remedy} */}
-                    {/* <br /> */}
-                    {/* <Typography style={{fontWeight: 'bold'}}>Notes:</Typography> {recalls.Notes} */}
+                    <br />
+                    <Typography style={{fontWeight: 'bold'}}>Summary:</Typography> {this.toLowerCase(recalls.Summary.toString())}
                   </Typography>
                 </Card>
                 <Typography>

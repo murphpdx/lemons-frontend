@@ -67,6 +67,8 @@ export class Search extends Component {
           <Button
             className='search-obj'
             onClick={this.handleSubmit}
+            color='default'
+            variant='contained'
           >
                 Search
           </Button>
