@@ -13,7 +13,9 @@ export class Search extends Component {
     this.state = {
       fireRedirect: false,
       carInfo: '',
-      year: null
+      year: null,
+      make: '',
+      model: ''
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -24,11 +26,12 @@ export class Search extends Component {
     this.setState({ year })
   }
   async handleSubmit () {
-    let car = await searchByYearAndMake('2000', 'saturn', 'LS')
+    let car = await searchByYearAndMake(this.state.year, this.state.make, this.state.model)
     console.log(car)
     this.setState({
       fireRedirect: true,
-      carInfo: car
+      carInfo: car,
+      year: new Date()
     })
   }
 
@@ -38,21 +41,31 @@ export class Search extends Component {
     return (
       <div>
         <div id='search-container'>
+          <InputAdornment
+            id='magnifying-glass'
+            position='start'>
+            <SearchOutlined />
+          </InputAdornment>
           <TextField
+            value={this.state.make}
+            className='search-obj'
             id='search-input'
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position='start'>
-                  <SearchOutlined />
-                </InputAdornment>
-              )
-            }}
+            placeholder='Make'
+            onChange={(event) => (this.setState({make: event.target.value}))}
+          />
+          <TextField
+            value={this.state.model}
+            className='search-obj'
+            placeholder='Model'
+            onChange={(event) => (this.setState({model: event.target.value}))}
           />
           <YearPicker
+            className='search-obj'
             onChange={this.onDateChange}
             id='date-picker'
           />
           <Button
+            className='search-obj'
             onClick={this.handleSubmit}
           >
                 Search

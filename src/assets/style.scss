@@ -2,12 +2,30 @@
     
 }
 
+.lemon {
+    margin-left: 50%;
+    height: 50%;
+    width: 50%;
+}
+
+#magnifying-glass {
+    display: inline-block;
+}
+
+.MuiSvgIcon-root-4 {
+    line-height: 40em;
+}
+
+.search-obj {
+    margin: 10px;
+}
+
 .search-bar {
     position: fixed;
     top: 50%;
-    left: 50%;
+    left: 25%;
     margin-top: -50px;
-    margin-left: -100px;
+    margin-left: -50px;
     display: inline;
 }
 

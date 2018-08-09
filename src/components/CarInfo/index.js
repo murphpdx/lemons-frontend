@@ -4,6 +4,7 @@ import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import { Link } from 'react-router-dom'
+import Moment from 'react-moment'
 
 export class CarInfo extends React.Component {
   constructor (props) {
@@ -26,8 +27,8 @@ export class CarInfo extends React.Component {
       <div>
         <Card>
           <CardContent>
-            <Typography gutterBottom variant='display1' color='black'>
-              Car Information: {carDetails.Results[0].Make} {carDetails.Results[0].Model} {carDetails.Results[0].ModelYear}
+            <Typography gutterBottom variant='display1'>
+              Car Information: {carDetails.Results[0].ModelYear} {carDetails.Results[0].Make} {carDetails.Results[0].Model}
             </Typography>
             <div>
               <Button
@@ -41,15 +42,15 @@ export class CarInfo extends React.Component {
               </Button>
             </div>
             <br />
-              Summary:
             {carDetails.Results.map(recalls =>
-              <div>
+              <div key={recalls.NHTSACampaignNumber}>
                 <Card>
-                  <Typography gutterBottom variant='body2' color='textSecondary'>
-                    Summary:
-                  </Typography>
+                  <Typography gutterBottom variant='body2' color='textSecondary' />
                   <Typography style={{marginBottom: 8, marginLeft: 8, marginRight: 6, marginTop: 8}}>
-                    <Typography style={{fontWeight: 'bold'}}>ReportReceivedDate:</Typography> {this.toLowerCase(recalls.ReportReceivedDate.toString())}
+                    <Typography style={{fontWeight: 'bold'}}>ReportReceivedDate:</Typography>
+                    <Moment format='MMMM Do, YYYY' unix>
+                      {((recalls.ReportReceivedDate.replace(/[^\d.]/g, '')).slice(0, 10))}
+                    </Moment>
                     <br />
                     <Typography style={{fontWeight: 'bold'}}>Component:</Typography> {this.toLowerCase(recalls.Component.toString())}
                     <br />
@@ -76,7 +77,6 @@ export class CarInfo extends React.Component {
             )}
           </CardContent>
         </Card>
-        console.log(carDetails.Results[0])
       </div>
     )
   }
