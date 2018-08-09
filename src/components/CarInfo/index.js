@@ -76,7 +76,7 @@ export class CarInfo extends React.Component {
                     <Typography style={{marginBottom: 8, marginLeft: 8, marginRight: 6, marginTop: 8}}>
                       <Typography style={{fontWeight: 'bold'}}>Summary:</Typography> {this.toLowerCase(recalls.Summary.toString())}
                       <br />
-                      <Typography style={{fontWeight: 'bold'}}>Consequence:</Typography> {this.toLowerCase(recalls.Conequence.toString())}
+                      <Typography style={{fontWeight: 'bold'}}>Consequence:</Typography> {recalls.Conequece ? this.toLowerCase(recalls.Conequence.toString()) : ''}
                       <br />
                       <Typography style={{fontWeight: 'bold'}}>Remedy:</Typography> {this.toLowerCase(recalls.Remedy.toString())}
                       <br />
