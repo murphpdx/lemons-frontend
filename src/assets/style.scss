@@ -3,9 +3,9 @@
 }
 
 .lemon {
-    margin-left: 50%;
-    height: 50%;
-    width: 50%;
+    margin-top: 10%;
+    height: 40%;
+    width: 40%;
 }
 
 #magnifying-glass {
@@ -20,10 +20,14 @@
     margin: 10px;
 }
 
+.input-label {
+    margin: 20px;
+}
+
 .search-bar {
     position: fixed;
     top: 50%;
-    left: 25%;
+    left: 30%;
     margin-top: -50px;
     margin-left: -50px;
     display: inline;
