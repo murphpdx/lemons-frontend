@@ -12,6 +12,8 @@ import Warning from '@material-ui/icons/Warning';
 import Collapse from '@material-ui/core/Collapse';
 import moment from 'moment';
 
+const flaggedWords = ['death', 'injury', 'crash', 'fire']
+
 export class CarInfo extends React.Component {
     constructor (props) {
         super(props)
@@ -19,12 +21,40 @@ export class CarInfo extends React.Component {
             expanded: false
         }
 
-        this.handleExpandClick = this.handleExpandClick.bind(this);
+        this.handleExpandClick = this.handleExpandClick.bind(this)
+        this.renderItem = this.renderItem.bind(this)
+        this.showWarning = this.showWarning.bind(this)
+    }
+
+    showWarning (cons) {
+        cons = cons.toLowerCase()
+       for(let i = 0; i < flaggedWords.length; i++ ) {
+           if(cons.indexOf(flaggedWords[i]) > -1) {
+               return true
+           }
+       }
+       return false
     }
 
     handleExpandClick = () => {
         this.setState(state => ({ expanded: !state.expanded }));
     };
+
+    renderItem (item) {
+        if(item == null) {
+            return ''
+        }
+        return (
+          <div>
+            <Typography
+              style={{ fontWeight: 'bold' }}
+            >
+              Consequence:
+            </Typography> { item.toString() }
+            <br /> <br />
+          </div>
+        )
+    }
 
     render () {
         const { carDetails } = this.props.location.state
@@ -34,8 +64,7 @@ export class CarInfo extends React.Component {
                 <Card>
                     <CardContent>
                         <Typography gutterBottom variant='display1'>
-                            Car
-                            Information: {carDetails.Results[ 0 ].ModelYear} {carDetails.Results[ 0 ].Make} {carDetails.Results[ 0 ].Model}
+                            {carDetails.Results[ 0 ].ModelYear} {carDetails.Results[ 0 ].Make} {carDetails.Results[ 0 ].Model}
                         </Typography>
                         <div>
                             <Button
@@ -50,7 +79,7 @@ export class CarInfo extends React.Component {
                         </div>
                         <br />
                         {carDetails.Results.map(recalls =>
-                            <Card>
+                            <Card key={recalls.NHTSACampaignNumber}>
                                 <CardHeader
                                     avatar={
                                         <Avatar aria-label="Recall">
@@ -60,7 +89,7 @@ export class CarInfo extends React.Component {
                                     action={
                                         <div>
                                             <IconButton>
-                                                <Warning disabled='true' color="error"/>
+                                                <Warning style={this.showWarning(recalls.Conequence) ? {} : { display: 'none' }} disabled='true' color="error"/>
                                             </IconButton>
                                             <IconButton
                                                 onClick={this.handleExpandClick}
@@ -76,21 +105,11 @@ export class CarInfo extends React.Component {
                                 />
                                 <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
                                     <CardContent>
-                                        <Typography
-                                            style={{ fontWeight: 'bold' }}>Component
-                                            Tree:</Typography> {recalls.Component.toString()}
-                                        <br/> <br />
-                                        <Typography
-                                            style={{ fontWeight: 'bold' }}>Consequence:</Typography> {recalls.Conequence.toString()}
-                                        <br/> <br />
-                                        <Typography
-                                            style={{ fontWeight: 'bold' }}>Remedy:</Typography> {recalls.Remedy.toString()}
-                                        <br/> <br />
-                                        <Typography
-                                            style={{ fontWeight: 'bold' }}>Notes:</Typography> {recalls.Notes.toString()}
-                                        <br/> <br />
-                                        <Typography
-                                            style={{ fontWeight: 'bold' }}>Summary:</Typography> {recalls.Summary.toString()}
+                                        {this.renderItem(recalls.Component)}
+                                        {this.renderItem(recalls.Conequence)}
+                                        {this.renderItem(recalls.Remedy)}
+                                        {this.renderItem(recalls.Notes)}
+                                        {this.renderItem(recalls.Summary)}
                                     </CardContent>
                                 </Collapse>
                             </Card>)}

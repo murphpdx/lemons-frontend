@@ -5,24 +5,41 @@ const axios = _axios.create({
 })
 
 export function searchByYearAndMake (year, make, model) {
-  return axios.get(`${BASE_URL}/recalls/${year}/make/${make}/model/${model}?format=json`)
+  return axios.get(
+    `${BASE_URL}/recalls/${year}/make/${make}/model/${model}?format=json`,
+    null,
+    {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+      }
+    }
+  )
     .then(function (response) {
-      console.log('[DEBUG] - ', response.data) // ex.: { user: 'Your User'}
-      console.log('[DEBUG] - ', response.status) // ex.: 200
       return response.data
     })
 }
 
 export function getModels (year, make) {
-    return axios.get(`${BASE_URL}/models/${year}/make/${make}?format=json`)
-        .then(function (response) {
-            return response.data
-        })
+  return axios.get(`${BASE_URL}/models/${year}/make/${make}?format=json`)
+    .then(function (response) {
+      return response.data
+    })
 }
 
 export function getMakes (year) {
-    return axios.get(`${BASE_URL}/year/${year}`)
-        .then(function (response) {
-            return response.data
-        })
+  return axios.get(`${BASE_URL}/year/${year}`,
+    null,
+    {
+      headers: {
+        'Access-Control-Allow-Headers': 'Access-Control-Allow-Methods,Access-Control-Allow-Origin, Origin, X-Requested-With, Content-Type, Accept',
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Access-Control-Allow-Methods': 'GET,OPTIONS'
+      }
+    }
+  )
+    .then(function (response) {
+      return response.data
+    })
 }
