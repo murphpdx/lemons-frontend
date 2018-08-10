@@ -6,7 +6,9 @@ You will need the Allow-Control-Allow-Origin pluggin on
 your browser in order to hit the backend.
 
 You can run the application locally by running the following commands:
+
 ```npm install```
+
 ```npm run start```
 
 
